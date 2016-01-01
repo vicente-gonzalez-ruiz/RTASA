@@ -1,0 +1,10 @@
+#mknod p pipe
+#mpg321 Javier_Paxinho__Temura.mp3 -s | tee p | aplay -f cd -t raw &
+#../delay/delay -d 800 < p | java RTASA 8192 8000 512 > /dev/null
+
+#mpg321 Javier_Paxinho__Temura.mp3 -s | java RTASA 2048 44100 | aplay -f cd -t raw
+
+#arecord -f cd -t raw | java RTASA 2048 44100 128 | aplay -f cd -t raw
+
+arecord -r 8000 -f S16_LE -c 2 | java RTASA 1024 8000 32 | aplay -c 2 -r 8000 -f S16_LE
+
